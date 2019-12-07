@@ -1,5 +1,8 @@
 package _01_introduction_to_encapsulation;
 
+
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 /*
@@ -24,24 +27,73 @@ public class EncapsulateTheData {
 	// 2. Create a new JUnit Test case and write tests to verify that
 	// the member variables' getters and setters are working
 
-	private int itemsRecieved; // must not be negative. All negative arguments get set to 0.
-	private float degreesTurned; // must be locked between 0.0 and 360.0 inclusive.
-	private String nomenclature = " "; // must not be set to a blank string. Blank Strings get set to a space
-	private Object memberObj; // must not be a String. If it is a String, set it equal to a new Object();
+	private static int itemsRecieved; // must not be negative. All negative arguments get set to 0.
+	private static float degreesTurned; // must be locked between 0.0 and 360.0 inclusive.
+	private static String nomenclature; // must not be set to a blank string. Blank Strings get set to a space
+	private static Object memberObj; // must not be a String. If it is a String, set it equal to a new Object();
 
-	@Test
+	
 	public static void main(String[] args) {
 
+		
+
+
+		
+	}
+	@Test
+	void test() {
+		EncapsulateTheData.setInt(-3);
+		EncapsulateTheData.setFloat(365);
+		EncapsulateTheData.setString("");
+		EncapsulateTheData.setObject("aaaaa");
+		
+		assertEquals(0, itemsRecieved);
+		assertEquals(360, degreesTurned);
+		assertEquals(" ", nomenclature);
+		
+		
 	}
 
 	public static Object get(Object a) {
 
-		return null;
+		return a;
 
 	}
 
-	public static void set(int a) {
+	public static void setInt(int a) {
+		if (a < 0) {
+			a = 0;
+		}
+
+		itemsRecieved = a;
+
+	}
+
+	public static void setFloat(float a) {
 		
+		if (a < 0) {
+			degreesTurned = 0;
+		} else if (a > 360) {
+			degreesTurned = 360;
+		} else {
+			degreesTurned = a;
+		}
+	}
+
+	public static void setString(String a) {
+
+		if (a == "") {
+			a = " ";
+		}
+		
+		nomenclature = a;
+	}
+
+	public static void setObject(Object a) {
+
+		
+		
+		memberObj = a;
 
 	}
 
