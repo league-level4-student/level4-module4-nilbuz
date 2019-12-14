@@ -15,9 +15,9 @@ public abstract class Polymorph {
 		this.setHeight(height);
 	}
 
-	public abstract void update();
-
 	public abstract void draw(Graphics g);
+	
+	public abstract void update();
 
 	public int getX() {
 		return x;
