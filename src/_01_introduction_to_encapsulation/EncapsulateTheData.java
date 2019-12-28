@@ -91,6 +91,9 @@ public class EncapsulateTheData {
 
 	public static void setObject(Object a) {
 
+		try {
+			a = a +" ";
+		}
 		
 		
 		memberObj = a;

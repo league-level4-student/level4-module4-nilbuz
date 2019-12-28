@@ -1,32 +1,46 @@
 package _04_hospital;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Doctor {
 
+	ArrayList<Patient> doctorPatientList;
+	
+	public Doctor() {
+		doctorPatientList = new ArrayList<Patient>();
+		
+	}
+	
+	
 	public boolean performsSurgery() {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 
 	public boolean makesHouseCalls() {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 
-	public void assignPatient(Patient patient) {
-		// TODO Auto-generated method stub
-		
+	public void assignPatient(Patient patient) throws DoctorFullException {
+		if (doctorPatientList.size() >= 3) {
+			throw new DoctorFullException();
+		} else {
+		doctorPatientList.add(patient);
+		}
 	}
 
-	public List<Doctor> getPatients() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Patient> getPatients() {
+		
+		return doctorPatientList;
 	}
 
 	public void doMedicine() {
-		// TODO Auto-generated method stub
-		
+		for (Patient patient: doctorPatientList) {
+			patient.checkPulse();
+		}
+
 	}
 
 }

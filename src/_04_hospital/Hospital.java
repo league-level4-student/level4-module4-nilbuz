@@ -1,32 +1,57 @@
 package _04_hospital;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hospital {
 
-	public List<Doctor> getDoctors() {
-		// TODO Auto-generated method stub
-		return null;
+	ArrayList<Patient> patientList;
+	ArrayList<Doctor> doctorList;
+
+	public Hospital() {
+		patientList = new ArrayList<Patient>();
+		doctorList = new ArrayList<Doctor>();
 	}
 
 	public void addDoctor(Doctor doctor) {
-		// TODO Auto-generated method stub
-		
+		doctorList.add(doctor);
+
 	}
 
 	public void addPatient(Patient patient) {
-		// TODO Auto-generated method stub
-		
+		patientList.add(patient);
+
 	}
 
-	public List<Doctor> getPatients() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Patient> getPatients() {
+
+		return patientList;
+	}
+
+	public ArrayList<Doctor> getDoctors() {
+
+		return doctorList;
 	}
 
 	public void assignPatientsToDoctors() {
-		// TODO Auto-generated method stub
+		int i = 0;
+		int j = 0;
 		
+		while (i < doctorList.size()) {
+			while (j < patientList.size()) {
+
+				try {
+					
+					doctorList.get(i).assignPatient(patientList.get(j));
+					j++;
+				} catch (DoctorFullException e) {
+
+					i++;
+					
+				}
+
+			}
+		}
 	}
 
 }
